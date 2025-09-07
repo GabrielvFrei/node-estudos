@@ -11,3 +11,49 @@ sequelize.authenticate().then(function(){ //then é um callback, é executada qu
 }).catch(function(erro){ //Catch é a falha
     console.log("falha: "+erro)
 }) //verificar se a conexão com o banco ocorreu 
+
+//MODEL É BASICAMENTE A CRIAÇÃO DE TABELAS PELO PROPRIO SEQUELIZE || São tabelas
+
+//MODEL PARA POSTAGENS
+
+const Postagem = sequelize.define('postagens', {
+    titulo: {
+        type: Sequelize.STRING
+    },
+    conteudo: {
+        type: Sequelize.TEXT
+    }
+})
+
+//MODEL PARA USUARIOS
+
+const Usuario = sequelize.define('usuarios', {
+    nome:{
+        type: Sequelize.STRING
+    },
+    sobrenome:{
+        type: Sequelize.STRING
+    },
+    idade:{
+        type: Sequelize.INTEGER
+    },
+    email:{
+        type: Sequelize.STRING
+    }
+}) 
+
+//INSERÇÃO DE DADOS
+
+Postagem.create({
+    titulo: "legal",
+    conteudo: "ASKJDFKASFDA SKMFNAJKDVKAJHVNKAJSFNHS"
+})
+
+Usuario.create({
+    nome: "Roberto",
+    sobrenome: "Jonas",
+    idade: 19,
+    email:"KASDJFKASJF@!NDASKJHNJKS.com"
+})
+
+// Usuario.sync({force: true}) // faz gerar a tabela la no banco de dados 
