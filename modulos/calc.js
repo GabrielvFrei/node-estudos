@@ -1,0 +1,6 @@
+var somaFunc = require("./soma")
+var divFunc = require("./divisão")
+var multifunc = require("./multiplicar")
+var subfunc = require("./subtrair")
+console.log(somaFunc(1,2))
+console.log(divFunc(4,2))
