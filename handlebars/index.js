@@ -24,9 +24,21 @@ app.get("/cad", function(req, res){ //sempre recebem dois parametros
     res.render('formulario') //enviar o formulario
 })
 
+//Rota Exclusão
+app.get("/deletar/:id", function(req, res){
+    Post.destroy({where: {'id': req.params.id}}).then(function(){
+        res.send('Deletado')
+    }).catch(function(erro){
+        res.send('Erro ao deletar'+ erro)
+    }) //vai puxar o parametro que foi passado na rota, e excluir a linha 
+})
+
 //Redirecionamento
 app.get('/', function(req, res){
-    res.render('home')
+    Post.findAll({order: [['id','DESC']] }).then(function(posts){ //essa linha serve para receber todos os posts da tabela post, pode ser qualquer nome
+        console.log(posts)
+        res.render('home', {posts: posts}) //serve para passar as variaveis entre as chaves
+    })
 })
 
 app.post('/add', function(req, res){ //só pode ser acessada com requisição com metodo post
