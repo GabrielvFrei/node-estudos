@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize') //variavel generica
-const sequelize = new Sequelize('teste', 'root', 'Cbjr1301$', { //conexão com banco de dados || parametro 1 banco parametro 2 usuario parametro 3 senha
+const sequelize = new Sequelize('teste', 'root', '123456', { //conexão com banco de dados || parametro 1 banco parametro 2 usuario parametro 3 senha
     host: "localhost", //onde o banco ta rodando
     dialect: 'mysql'
 })
